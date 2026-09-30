@@ -13,7 +13,10 @@ jobs:
       - name: Installer les dépendances
         run: |
           python -m pip install --upgrade pip
-          python -m pip install pytest
+          python -m pip install pytest mypy
 
-      - name: Lancer les tests unitaires
+      - name: Vérification du typage 
+        run: python -m mypy lib.py
+
+      - name: Lancer les tests unitaires 
         run: python -m pytest
